@@ -1,0 +1,76 @@
+html,body{
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;    
+}
+
+body{
+    background: url(../../images/beijing.jpg);
+    position: relative;
+}
+
+#Login{
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;  
+    margin: 0 auto;  
+    margin-top: 15%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    position: relative;
+}
+
+#Login div{
+    padding: 20px 0 20px 40px;
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+}
+
+#Login .submit{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    left: 34.8%;
+}
+
+#Login div input{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#Login div .yzma{
+    width: 50%;    
+}
+#Login div .imgyzm{
+    height: 30px;
+    line-height: 30px;  
+    padding: 2px;
+    border:1px solid red;  
+    position: absolute;
+    right: 100px;
+    bottom: 105px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

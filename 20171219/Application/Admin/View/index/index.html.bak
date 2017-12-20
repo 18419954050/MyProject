@@ -1,0 +1,112 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <title>后台管理系统！</title>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/contents.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/head_foot.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin/page.css"/>
+</head>
+<style>
+
+</style>
+<body style="position: relative">
+<div id="Navigation">
+    <a class="logo">
+        <img src="__PUBLIC__/images/admin/logo.jpg" style="width: 60px;height: 40px;"/>
+    </a>
+    <div style="width: 180px;height: 40px;color: white;" id="data">
+        {$now}
+    </div>
+    
+  
+<a href="{:U('Admin/index/index')}" style="color: white;position: absolute;top: 0;left: 50%;">返回首页</a>   
+<form method="post" action="{:U('Admin/user/loginout')}">
+<input type="submit" value="退出" class="loginout"/>
+</form>
+</div>
+
+
+<div id="box">
+    <div id="center">
+        <div id="leftNavigation">
+            <ul class="navigation">
+                <a href="{:U('Admin/index/index')}">
+                    <li class="naviga">人员管理</li>
+                </a>         
+            </ul>
+        </div>
+    </div>
+    <div id="center_content">
+        <form method="post" id="search">
+            <span>姓名：</span> <input name="name" type="text"/>　 <span>微信昵称：</span> <input name="nickname" type="text"/>　<span>联系电话：</span> <input name="tel" type="text"/>　
+            <span>状态：</span> <select name="status" style="height: 29px;font-size: 16px;">
+                                    <option value ="" selected="selected">请选择</option>
+                                    <option  value="10">未发送</option>
+                                    <option  value="20">已发送</option>
+                                </select>
+            　<input style="height: 29px;font-size: 16px;" type="submit" value="查　询" />
+        </form>
+        <table width="100%" cellspacing="0" cellpadding="0" border="1">
+        <tr style="background: #ADADAD;">
+            <th>姓名</th>
+            <th>微信昵称</th>
+            <th>联系电话</th>
+            <th>用户提交时间</th>
+            <th>是否已发送邀请函</th>
+            <th>操作</th>
+        </tr>
+            <foreach name="listData" item="data">
+               <tr> 
+                <td>{$data.name}</td>
+                <td>{$data.nickname}</td>
+                <td>{$data.tel}</td>
+                <td>{$data.time}</td>
+                <td>
+                    <if condition="$data.status eq 10">未发送邀请函
+                        <elseif condition="$data.status eq 20"/><span style="color: #F17891;">已发送邀请函 </span>
+                    </if>
+                </td>
+                <td>
+                     <if condition="$data.status eq 0"><a onclick="return confirm('是否修改为已发送？')" href="{:U('Admin/Index/update',array('id'=>$data['id']))}"><button>修改</button> </a>
+                        <elseif condition="$data.status eq 20"/><span style="color: #F17891;">已发送 </span>
+                    </if>
+                     <a style="color: black;" href="{:U('Admin/Index/delete',array('id'=>$data['id']))}" onclick="return confirm('是否删除？')"><button>删除</button></a></td>
+               </tr>          
+            </foreach>       
+    </table>
+    <div style="margin-top: 50px;" class="flickr">{$page}</div>
+    </div>
+</div>
+<script type="text/javascript">
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+} 
+setInterval(function(){
+    var time = getNowFormatDate();
+    $('#data').text(time);
+    
+},1000)
+</script>
+</body>
+</html>
+
+
+
+

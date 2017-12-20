@@ -1,0 +1,93 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2017/4/2 0002
+ * Time: 下午 3:12
+ */
+
+namespace Admin\Controller;
+
+
+class IndexController extends AdminController
+{
+        
+        
+    public function _initialize(){
+        call_user_func(array('parent',__FUNCTION__));
+        
+    }
+    /**
+     * 后台用户列表及查询
+     * User: 杨仲一
+     * Date: 2017/5/15
+     * Time: 10:55
+     */
+    public function index(){
+       // if($this->user)   $this->redirect('Admin/User/login');
+       $userlistModel=M('user_list');
+       if(IS_POST){
+            $searchData=I('post.');
+            if($searchData['name']){
+                $data['name']=array('like','%'.$searchData['name'].'%');
+            }
+            if($searchData['nickname']){
+                $data['nickname']=array('like','%'.$searchData['nickname'].'%');
+            }
+            if($searchData['tel']){
+                $data['tel']=array('like','%'.$searchData['tel'].'%');
+            }
+            if($searchData['status']){
+                $data['status']=$searchData['status'];
+            }
+            $listData=$userlistModel->where($data)->select();
+            $this->assign('listData',$listData);
+            
+       }else{
+            //$listData=$userlistModel->select();
+            //$this->assign('listData',$listData);
+            $count= $userlistModel->count();// 查询满足要求的总记录数
+            $Page = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(2)
+            $show = $Page->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+            $list = $userlistModel->order('id')->limit($Page->firstRow.','.$Page->listRows)->select();
+            $this->assign('listData',$list);// 赋值数据集
+            $this->assign('page',$show);// 赋值分页输出
+       }
+       $this->display() ;
+    }
+    /**
+     * 后台用户状态修改
+     * User: 杨仲一
+     * Date: 2017/5/15
+     * Time: 10:55
+     */
+    public function update(){
+        $userlistModel=M('user_list');
+        $id=I('get.id');
+        $updateData=$userlistModel->where(array('id'=>$id))->setField(array('status'=>20));
+        if($updateData){
+           $this->redirect('Admin/Index/index'); 
+        }
+    }
+    /**
+     * 后台用户删除
+     * User: 杨仲一
+     * Date: 2017/5/15
+     * Time: 10:55
+     */
+    public function delete(){
+        $userlistModel=M('user_list');
+        $id=I('get.id');
+        $updateData=$userlistModel->where(array('id'=>$id))->delete();
+        if($updateData){
+           $this->redirect('Admin/Index/index'); 
+        }
+    }
+    
+    
+    
+    
+    
+    
+   
+}

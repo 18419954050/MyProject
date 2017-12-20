@@ -1,0 +1,60 @@
+{extends file="vstruncture.html"}
+{block name="top"}
+<div id="Navigation">
+    <a class="logo">
+        <img src="{$public}images/admin/logo.jpg" style="width: 60px;height: 40px;"/>
+    </a>
+    <div style="width: 180px;height: 40px;color: white;" id="data">
+        {$now}
+    </div>
+    
+  
+<a href="{U('Admin/index/index')}" style="color: white;position: absolute;top: 0;left: 50%;">返回首页</a>   
+<form method="post" action="{U('Admin/user/loginout')}">
+<input type="submit" value="退出" class="loginout"/>
+</form>
+</div>
+
+
+<div id="center">
+    <div id="leftNavigation">
+        <ul class="navigation">
+            <a href="{U('Admin/Case/Newcase')}">
+                <li class="naviga">添加案例</li>
+            </a>
+            <a href="">
+                <li class="naviga">添加新闻</li>
+            </a>
+            <a href="">
+                <li class="naviga">人员管理</li>
+            </a>           
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+} 
+setInterval(function(){
+    var time = getNowFormatDate();
+    $('#data').text(time);
+    
+},1000)
+</script>
+{/block}
+{block name="foot"}
+{/block}

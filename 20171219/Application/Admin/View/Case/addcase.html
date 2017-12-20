@@ -1,0 +1,24 @@
+{extends file="../header_footer.html"}
+
+{block name="content"}
+<div id="Rightmargin">
+    <div id="Allcontent">
+        <form method="post" enctype="multipart/form-data">
+            <div class="data-up">
+                <span class="left">案例地址</span>
+                <input type="text" name="urlcase"/>
+            </div>            
+            <div class="data-up">
+                <span class="left">案例名称</span>
+                <input type="text" name="namecase"/>
+            </div>            
+            <div class="data-up">
+                <span class="left">案例图片</span>
+                <input type="file" name="imgcase"/>
+            </div>
+            <input type="submit" value="提交" class="submiT" style="margin-left: 70%;"/>
+        </form>        
+    </div>
+</div>
+{/block}
+

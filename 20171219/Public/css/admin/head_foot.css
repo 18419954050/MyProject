@@ -1,0 +1,132 @@
+html,body,div,ul,li,a,span{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    position: relative;
+}
+#Navigation{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: black;
+    position: fixed;
+    top: 0;
+}
+
+#Navigation .logo{
+    position: absolute;
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: white;
+}
+
+
+#Rightmargin{
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    width: 100%;
+    height: 100%;
+    background: #FF8000;
+}
+
+#center{
+    width: 200px;
+    height: 800px;
+    margin-top: 40px;
+    background: red;
+    float: left;
+    
+}
+#box{
+    clear: both;
+    width: 100%;
+}
+
+#leftNavigation{
+    width: 200px;
+    height: 100%;
+    background: #B9B9B9;
+    float: left;
+    border-radius: 10px;
+}
+
+#leftNavigation .naviga{
+    width: 98%;
+    height: 25px;
+    line-height: 25px;
+    padding: 10px 0 10px 0;
+    background: #7F7F7F;
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.loginout{
+    position: absolute;
+    right: 6%;
+    top: 20%;
+    
+}
+#center_content{
+    float: left;
+    width: 80%;
+    height: auto;
+    margin-top: 40px;
+}
+
+#center_content{ 
+    font-size: 16px;
+}
+#center_content table th,td{ 
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    width: 10%;
+}
+#center_content table td a{
+    color: #0BEDFF;
+}
+#center_content table {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#center_content form{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#search input,option,select{ 
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid gray;
+}
+#search span{ 
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

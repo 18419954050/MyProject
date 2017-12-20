@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <title>了解西山秘境，从这里开始</title>    
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/default.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/home/animate.min.css" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="http://lee.cddfcb.com/weixin.share.heyi.php?t=1"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/swiper.min.js"></script>
+    
+    
+    <style>
+    html,body{margin: 0;padding: 0;width: 100%;height: 100%;position: relative;background: #0d2934;}
+    #imgs{position:absolute;top:0;width:100%;height:100%;margin:0;border-radius:0;}
+    #imgs div{width: 100%;height: 100%;overflow:hidden;}
+    .page{margin: 0;padding: 0;width: 100%;height: 100%;position: relative;}
+    .case{display: none;}
+    </style>
+    
+</head>
+
+<body>
+<div id="imgs">
+    <div>
+        <video id="myVideo"  style="position: absolute;top: 0;width: 100%;height: 100%;z-index: 888;background: black;" preload="metadata" 
+               x-webkit-airplay="true"
+               playsinline="true" >
+            <source src="__PUBLIC__/video/xsmj.mp4?v=2" type="video/mp4">
+        </video>
+        <img src="__PUBLIC__/images/home/door/clicks.png" style="position: absolute;left: 45%;top:80%;z-index: 8888;width: 10%;opacity: 0.7;" class="clicks tm"/>
+        <script type="text/javascript">
+            $(document).ready(function(){                 
+                var Video = document.getElementById('myVideo');
+                $('#myVideo,.clicks').on('touchstart',function(){
+                    Video.play();
+                    $('.clicks').hide();
+                })
+                Video.addEventListener('ended',function(){
+                    window.location.href = '{:U("Home/Index/qian")}';
+                },false);
+            })
+        </script>
+    </div>
+</div>
+
+
+</script>
+<script type="text/javascript">
+ $.weixinShare({
+            debug: false,
+            title: '了解西山秘境，从这里开始', // 分享标题
+            desc: '南充有西山，西山藏秘境。南充阳光置业，西山秘境，邀您品鉴！', // 分享描述
+            link: "http://lee.cddfcb.com/H5/yangguang/20170829",
+			imgUrl: "http://lee.cddfcb.com/H5/yangguang/20170829/Public/images/fenxiang.jpg",
+        });
+</script>
+</html>
